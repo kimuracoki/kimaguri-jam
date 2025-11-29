@@ -150,8 +150,11 @@ export default function HomePage() {
             color: "#fefaf5",
             overflow: "hidden",
             backgroundImage: "url('kimaguri-artist-photo.webp')", // public に配置
-            backgroundSize: "auto 100vh", // 画面幅100%を表示
-            backgroundPosition: `center ${scrollY * 0.5}px`,
+            backgroundSize: {
+              xs: "auto 100vh", // スマホ: 高さ100vh
+              md: "100% auto", // PC: 幅100%
+            },
+            backgroundPosition: `center ${scrollY * 0.7}px`,
             backgroundRepeat: "no-repeat",
             willChange: "background-position", // iOSでのパフォーマンス向上
             minHeight: "100vh", // 背景が十分な高さを確保
