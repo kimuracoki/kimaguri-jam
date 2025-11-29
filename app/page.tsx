@@ -509,7 +509,7 @@ export default function HomePage() {
                     color: "rgba(255,255,255,0.9)",
                   }}
                 >
-                  若い女性ドラマーをリーダーに、ギターとベースのトリオ編成。
+                  ドラマーのスグリユリカ率いるトリオ編成バンド。
                   それぞれのルーツを持ち寄りながら、その場の空気で自由に音を重ねていきます。
                 </Typography>
               </Stack>
@@ -551,8 +551,8 @@ export default function HomePage() {
                         variant="body2"
                         sx={{ mt: 2, color: "rgba(62,47,30,0.9)" }}
                       >
-                        バンドの方向性をゆるやかに導くリーダー。
-                        軽やかさと芯の強さを併せ持つドラミングで、セッション全体の空気をつくります。
+                        バンドの絶対的リーダー。
+                        芯の強さと豊かな感性を併せ持つドラムによってバンドを牽引。
                       </Typography>
                     </CardContent>
                   </Card>
@@ -594,8 +594,7 @@ export default function HomePage() {
                         variant="body2"
                         sx={{ mt: 2, color: "rgba(62,47,30,0.9)" }}
                       >
-                        グルーヴのど真ん中を支えるベース。
-                        低音で土台を作りながら、時にメロディックに動いてバンドの表情を変えていきます。
+                        一児の父でありながら、毎日の基礎練を欠かさない実力派ベーシスト。
                       </Typography>
                     </CardContent>
                   </Card>
@@ -637,8 +636,7 @@ export default function HomePage() {
                         variant="body2"
                         sx={{ mt: 2, color: "rgba(62,47,30,0.9)" }}
                       >
-                        クリーン〜ドライブまで幅広いトーンで、メロディとテクスチャを行き来するギター。
-                        空間系の響きで、会場全体の雰囲気をふわりと変えていきます。
+                        耳に優しいギターを心がける、穏健派ギタリスト。
                       </Typography>
                     </CardContent>
                   </Card>
