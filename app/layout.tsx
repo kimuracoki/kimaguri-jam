@@ -4,7 +4,11 @@ import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "kimaguri jam | Official Site",
-  description: "Instrumental trio band with a cozy café vibe.",
+  description: "Instrumental trio band",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
