@@ -19,6 +19,19 @@ import { CssBaseline } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import theme from "./theme";
 
+import {
+  GroupOutlined,
+  MusicNoteOutlined,
+  GraphicEqOutlined,
+  QueueMusicOutlined,
+  PlayCircleOutline,
+  Instagram,
+  AlbumOutlined,
+  EventAvailableOutlined,
+  SendOutlined,
+  PlaceOutlined,
+} from "@mui/icons-material";
+
 const pastEvents = [
   "KDハポン",
   "コロンブスマーケット",
@@ -45,16 +58,19 @@ export default function HomePage() {
             <Container maxWidth="lg">
               <Grid container spacing={6} alignItems="center">
                 <Grid size={{ xs: 12, md: 7 }}>
-                  <Typography
-                    variant="overline"
-                    sx={{
-                      letterSpacing: "0.16em",
-                      textTransform: "uppercase",
-                      color: "text.secondary",
-                    }}
-                  >
-                    instrumental trio from aichi, japan
-                  </Typography>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <GroupOutlined fontSize="small" color="inherit" />
+                    <Typography
+                      variant="overline"
+                      sx={{
+                        letterSpacing: "0.16em",
+                        textTransform: "uppercase",
+                        color: "text.secondary",
+                      }}
+                    >
+                      instrumental trio from aichi, japan
+                    </Typography>
+                  </Stack>
 
                   <Typography
                     variant="h2"
@@ -82,18 +98,25 @@ export default function HomePage() {
                     愛知県をメインに、いろんな場所に出没します。
                   </Typography>
 
-                  <Stack direction="row" spacing={1.5} sx={{ mt: 3, flexWrap: "wrap" }}>
+                  <Stack
+                    direction="row"
+                    spacing={1.5}
+                    sx={{ mt: 3, flexWrap: "wrap" }}
+                  >
                     <Chip
+                      icon={<MusicNoteOutlined />}
                       label="Free Session"
                       variant="outlined"
                       sx={{ borderRadius: 999 }}
                     />
                     <Chip
+                      icon={<GroupOutlined />}
                       label="Instrumental Trio"
                       variant="outlined"
                       sx={{ borderRadius: 999 }}
                     />
                     <Chip
+                      icon={<PlaceOutlined fontSize="small" /> }
                       label="From Aichi"
                       variant="outlined"
                       sx={{ borderRadius: 999 }}
@@ -111,6 +134,7 @@ export default function HomePage() {
                       href="https://www.youtube.com/watch?v=rQOJfemmTUk"
                       target="_blank"
                       rel="noopener noreferrer"
+                      startIcon={<PlayCircleOutline />}
                     >
                       ライブ動画を見る
                     </Button>
@@ -120,6 +144,7 @@ export default function HomePage() {
                       href="https://www.instagram.com/kimaguri_jam/"
                       target="_blank"
                       rel="noopener noreferrer"
+                      startIcon={<Instagram />}
                     >
                       Instagram
                     </Button>
@@ -154,8 +179,10 @@ export default function HomePage() {
                           lineHeight: 1.6,
                         }}
                       >
-                        Soft, free,<br />
-                        and a little bit<br />
+                        Soft, free,
+                        <br />
+                        and a little bit
+                        <br />
                         unpredictable.
                       </Typography>
                     </Box>
@@ -168,16 +195,24 @@ export default function HomePage() {
           {/* ===== Members ===== */}
           <Box sx={{ py: { xs: 6, md: 8 } }}>
             <Container maxWidth="lg">
-              <Typography
-                variant="h4"
-                sx={{
-                  fontFamily: "var(--font-playfair)",
-                  textAlign: "center",
-                  mb: 4,
-                }}
+              <Stack
+                direction="row"
+                spacing={1}
+                justifyContent="center"
+                alignItems="center"
+                sx={{ mb: 4 }}
               >
-                Members
-              </Typography>
+                <GroupOutlined />
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontFamily: "var(--font-playfair)",
+                    textAlign: "center",
+                  }}
+                >
+                  Members
+                </Typography>
+              </Stack>
 
               <Grid container spacing={4}>
                 <Grid size={{ xs: 12, md: 4 }}>
@@ -189,12 +224,15 @@ export default function HomePage() {
                       bgcolor: "rgba(255,255,255,0.96)",
                     }}
                   >
-                    <Typography
-                      variant="overline"
-                      sx={{ letterSpacing: "0.14em" }}
-                    >
-                      Drums / Leader
-                    </Typography>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <MusicNoteOutlined fontSize="small" />
+                      <Typography
+                        variant="overline"
+                        sx={{ letterSpacing: "0.14em" }}
+                      >
+                        Drums / Leader
+                      </Typography>
+                    </Stack>
                     <Typography
                       variant="h6"
                       sx={{
@@ -220,12 +258,15 @@ export default function HomePage() {
                       bgcolor: "rgba(255,255,255,0.96)",
                     }}
                   >
-                    <Typography
-                      variant="overline"
-                      sx={{ letterSpacing: "0.14em" }}
-                    >
-                      Bass
-                    </Typography>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <GraphicEqOutlined fontSize="small" />
+                      <Typography
+                        variant="overline"
+                        sx={{ letterSpacing: "0.14em" }}
+                      >
+                        Bass
+                      </Typography>
+                    </Stack>
                     <Typography
                       variant="h6"
                       sx={{
@@ -251,12 +292,15 @@ export default function HomePage() {
                       bgcolor: "rgba(255,255,255,0.96)",
                     }}
                   >
-                    <Typography
-                      variant="overline"
-                      sx={{ letterSpacing: "0.14em" }}
-                    >
-                      Guitar
-                    </Typography>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <QueueMusicOutlined fontSize="small" />
+                      <Typography
+                        variant="overline"
+                        sx={{ letterSpacing: "0.14em" }}
+                      >
+                        Guitar
+                      </Typography>
+                    </Stack>
                     <Typography
                       variant="h6"
                       sx={{
@@ -279,16 +323,24 @@ export default function HomePage() {
           {/* ===== Live Video ===== */}
           <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "#f3e8dc" }}>
             <Container maxWidth="md">
-              <Typography
-                variant="h4"
-                sx={{
-                  fontFamily: "var(--font-playfair)",
-                  textAlign: "center",
-                  mb: 3,
-                }}
+              <Stack
+                direction="row"
+                spacing={1}
+                justifyContent="center"
+                alignItems="center"
+                sx={{ mb: 3 }}
               >
-                Live Video
-              </Typography>
+                <PlayCircleOutline />
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontFamily: "var(--font-playfair)",
+                    textAlign: "center",
+                  }}
+                >
+                  Live Video
+                </Typography>
+              </Stack>
 
               <Typography
                 variant="body2"
@@ -339,16 +391,24 @@ export default function HomePage() {
           {/* ===== 音源 ===== */}
           <Box sx={{ py: { xs: 6, md: 8 } }}>
             <Container maxWidth="sm">
-              <Typography
-                variant="h4"
-                sx={{
-                  fontFamily: "var(--font-playfair)",
-                  textAlign: "center",
-                  mb: 3,
-                }}
+              <Stack
+                direction="row"
+                spacing={1}
+                justifyContent="center"
+                alignItems="center"
+                sx={{ mb: 3 }}
               >
-                音源
-              </Typography>
+                <AlbumOutlined />
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontFamily: "var(--font-playfair)",
+                    textAlign: "center",
+                  }}
+                >
+                  音源
+                </Typography>
+              </Stack>
 
               <Paper
                 sx={{
@@ -373,16 +433,24 @@ export default function HomePage() {
           {/* ===== Events（カード） ===== */}
           <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "#f3e8dc" }}>
             <Container maxWidth="lg">
-              <Typography
-                variant="h4"
-                sx={{
-                  fontFamily: "var(--font-playfair)",
-                  textAlign: "center",
-                  mb: 4,
-                }}
+              <Stack
+                direction="row"
+                spacing={1}
+                justifyContent="center"
+                alignItems="center"
+                sx={{ mb: 3 }}
               >
-                Events
-              </Typography>
+                <EventAvailableOutlined />
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontFamily: "var(--font-playfair)",
+                    textAlign: "center",
+                  }}
+                >
+                  Events
+                </Typography>
+              </Stack>
 
               <Typography
                 variant="body2"
@@ -407,6 +475,7 @@ export default function HomePage() {
                     >
                       <CardContent>
                         <Chip
+                          icon={<EventAvailableOutlined />}
                           label="Past Event"
                           size="small"
                           sx={{ mb: 1, borderRadius: 999 }}
@@ -444,6 +513,7 @@ export default function HomePage() {
                   >
                     <CardContent>
                       <Chip
+                        icon={<EventAvailableOutlined />}
                         label="Coming Soon"
                         color="primary"
                         size="small"
@@ -481,16 +551,24 @@ export default function HomePage() {
             }}
           >
             <Container maxWidth="sm">
-              <Typography
-                variant="h5"
-                sx={{
-                  fontFamily: "var(--font-playfair)",
-                  textAlign: "center",
-                  mb: 2,
-                }}
+              <Stack
+                direction="row"
+                spacing={1}
+                justifyContent="center"
+                alignItems="center"
+                sx={{ mb: 2 }}
               >
-                Contact
-              </Typography>
+                <SendOutlined />
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontFamily: "var(--font-playfair)",
+                    textAlign: "center",
+                  }}
+                >
+                  Contact
+                </Typography>
+              </Stack>
 
               <Typography
                 variant="body2"
@@ -507,6 +585,7 @@ export default function HomePage() {
                   href="https://www.instagram.com/kimaguri_jam/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  startIcon={<Instagram />}
                 >
                   Instagram を開く
                 </Button>
@@ -514,7 +593,12 @@ export default function HomePage() {
 
               <Typography
                 variant="caption"
-                sx={{ display: "block", textAlign: "center", mt: 4, color: "text.secondary" }}
+                sx={{
+                  display: "block",
+                  textAlign: "center",
+                  mt: 4,
+                  color: "text.secondary",
+                }}
               >
                 © {new Date().getFullYear()} kimaguri jam
               </Typography>
@@ -523,5 +607,25 @@ export default function HomePage() {
         </Box>
       </ThemeProvider>
     </StyledEngineProvider>
+  );
+}
+
+/**
+ * A tiny dummy icon component to represent "place" without pulling in another import.
+ * 実際に Place アイコンを使いたければ、@mui/icons-material から Place を import して
+ * そちらに差し替えてください。
+ */
+function PlaceOutlinedDummy() {
+  return (
+    <Box
+      component="span"
+      sx={{
+        display: "inline-block",
+        width: 14,
+        height: 14,
+        borderRadius: "50%",
+        border: "1.4px solid currentColor",
+      }}
+    />
   );
 }
