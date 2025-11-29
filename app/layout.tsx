@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from "./theme";
+import type { Metadata } from "next";
+import Providers from "./providers";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "kimaguri jam | Official Site",
   description: "Instrumental trio band with a cozy café vibe.",
 };
@@ -11,10 +11,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
