@@ -5,7 +5,7 @@ const nextConfig = {
   output: "export",
   basePath: isProd ? "/kimaguri-jam" : "",
   images: {
-    unoptimized: true, // 静的エクスポート向け
+    unoptimized: true,
   },
 };
 
