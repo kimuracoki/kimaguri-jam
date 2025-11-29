@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  output: "export",
+  basePath: isProd ? "/kimaguri-jam" : "",
+  images: {
+    unoptimized: true, // 静的エクスポート向け
+  },
 };
 
 export default nextConfig;
