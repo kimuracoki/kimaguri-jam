@@ -128,7 +128,7 @@ export default function HomePage() {
             color: "#fefaf5",
             overflow: "hidden",
             backgroundImage: "url('kimaguri-artist-photo.webp')", // public に配置
-            backgroundSize: "contain",
+            backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundAttachment: "fixed", 
