@@ -128,10 +128,10 @@ export default function HomePage() {
             color: "#fefaf5",
             overflow: "hidden",
             backgroundImage: "url('kimaguri-artist-photo.webp')", // public に配置
-            backgroundSize: "cover",
+            backgroundSize: "contain",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed", // md以上でパララックス
+            backgroundAttachment: "fixed", 
           }}
         >
           {/* グラデーションオーバーレイ */}
