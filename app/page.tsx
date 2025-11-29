@@ -45,15 +45,28 @@ export default function HomePage() {
           borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+            px: { xs: 2, md: 4 },
+            minHeight: { xs: 56, md: 64 },
+          }}
+        >
           {/* ロゴ／バンド名 */}
-          <Stack direction="row" spacing={1.5} alignItems="baseline">
+          <Stack
+            direction="row"
+            spacing={1}
+            alignItems="baseline"
+            sx={{ minWidth: 0 }}
+          >
             <Typography
               variant="h6"
               sx={{
                 fontFamily: "var(--font-playfair)",
-                letterSpacing: "0.18em",
+                letterSpacing: "0.16em",
                 textTransform: "uppercase",
+                fontSize: { xs: "0.9rem", md: "1.1rem" },
+                whiteSpace: "nowrap",
               }}
             >
               kimaguri jam
@@ -61,7 +74,7 @@ export default function HomePage() {
             <Typography
               variant="caption"
               sx={{
-                letterSpacing: "0.16em",
+                letterSpacing: "0.14em",
                 textTransform: "uppercase",
                 color: "rgba(255,255,255,0.6)",
                 display: { xs: "none", sm: "inline" },
@@ -71,46 +84,12 @@ export default function HomePage() {
             </Typography>
           </Stack>
 
-          {/* ナビゲーション */}
+          {/* ナビゲーション（PCのみ表示） */}
           <Stack
             direction="row"
             spacing={2}
             sx={{ alignItems: "center", display: { xs: "none", md: "flex" } }}
           >
-            <Button
-              href="#top"
-              color="inherit"
-              size="small"
-              sx={{ textTransform: "none" }}
-            >
-              Top
-            </Button>
-            <Button
-              href="#members"
-              color="inherit"
-              size="small"
-              sx={{ textTransform: "none" }}
-            >
-              Members
-            </Button>
-            <Button
-              href="#live"
-              color="inherit"
-              size="small"
-              sx={{ textTransform: "none" }}
-            >
-              Live
-            </Button>
-            <Button
-              href="#contact"
-              color="inherit"
-              size="small"
-              sx={{ textTransform: "none" }}
-            >
-              Contact
-            </Button>
-
-            {/* SNS アイコン */}
             <Stack direction="row" spacing={1}>
               <Button
                 href="https://www.instagram.com/kimaguri_jam/"
@@ -140,7 +119,7 @@ export default function HomePage() {
       {/* ===== Main ===== */}
       <Box sx={{ bgcolor: "#f3e7da", color: "#3e2f1e" }} id="top">
         {/* ヘッダーぶんの余白 */}
-        <Box sx={{ height: 72 }} />
+        <Box sx={{ height: { xs: 56, md: 62 } }} />
 
         {/* ===== Hero + Members：パララックス背景 ===== */}
         <Box
@@ -148,11 +127,11 @@ export default function HomePage() {
             position: "relative",
             color: "#fefaf5",
             overflow: "hidden",
-            backgroundImage: "url('/kimaguri-artist-photo.webp')",
+            backgroundImage: "url('/kimaguri-artist-photo.webp')", // public に配置
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: { xs: "scroll", md: "fixed" }, // md以上でパララックス
+            backgroundAttachment: "fixed", // md以上でパララックス
           }}
         >
           {/* グラデーションオーバーレイ */}
@@ -162,7 +141,7 @@ export default function HomePage() {
               inset: 0,
               pointerEvents: "none",
               background:
-                "linear-gradient(to bottom, rgba(5,2,0,0.82), rgba(5,2,0,0.32) 45%, rgba(5,2,0,0.82) 100%)",
+                "linear-gradient(to bottom, rgba(5,2,0,0.86), rgba(5,2,0,0.32) 45%, rgba(5,2,0,0.86) 100%)",
               zIndex: 0,
             }}
           />
@@ -172,19 +151,23 @@ export default function HomePage() {
             <Container
               maxWidth="lg"
               sx={{
-                pt: { xs: 7, md: 9 },
-                pb: { xs: 8, md: 10 },
+                pt: { xs: 6, md: 9 },
+                pb: { xs: 7, md: 10 },
+                px: { xs: 2, sm: 3, md: 4 },
               }}
             >
               <Stack
                 direction="row"
                 spacing={1}
                 alignItems="center"
-                sx={{ mb: { xs: 4, md: 6 } }}
+                sx={{
+                  mb: { xs: 3, md: 6 },
+                  justifyContent: { xs: "center", md: "flex-start" },
+                }}
               >
                 <Box
                   sx={{
-                    width: 28,
+                    width: { xs: 18, md: 28 },
                     height: 1,
                     bgcolor: "rgba(255,255,255,0.6)",
                     borderRadius: 999,
@@ -193,9 +176,11 @@ export default function HomePage() {
                 <Typography
                   variant="overline"
                   sx={{
-                    letterSpacing: "0.18em",
+                    letterSpacing: "0.16em",
                     textTransform: "uppercase",
                     color: "rgba(255,255,255,0.72)",
+                    fontSize: { xs: "0.65rem", md: "0.75rem" },
+                    textAlign: { xs: "center", md: "left" },
                   }}
                 >
                   instrumental trio from aichi, japan
@@ -204,13 +189,16 @@ export default function HomePage() {
 
               <Grid container spacing={4} alignItems="flex-end">
                 {/* 左：コピー・テキスト */}
-                <Grid size={{ xs: 12, md: 7 }}>
+                <Grid
+                  size={{ xs: 12, md: 7 } as any}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
                   <Typography
                     variant="h2"
                     sx={{
                       fontFamily: "var(--font-playfair)",
                       fontWeight: 700,
-                      fontSize: { xs: "2.8rem", md: "3.8rem" },
+                      fontSize: { xs: "2.2rem", md: "3.8rem" },
                       lineHeight: 1.15,
                     }}
                   >
@@ -220,11 +208,11 @@ export default function HomePage() {
                   <Typography
                     variant="h6"
                     sx={{
-                      mt: 1.5,
+                      mt: 1.2,
                       fontWeight: 400,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
-                      fontSize: { xs: "0.9rem", md: "1rem" },
+                      fontSize: { xs: "0.85rem", md: "1rem" },
                       color: "rgba(255,255,255,0.85)",
                     }}
                   >
@@ -234,10 +222,12 @@ export default function HomePage() {
                   <Typography
                     variant="body1"
                     sx={{
-                      mt: 3,
+                      mt: 2.5,
                       lineHeight: 1.9,
                       maxWidth: 560,
+                      mx: { xs: "auto", md: 0 },
                       color: "rgba(255,255,255,0.93)",
+                      fontSize: { xs: "0.9rem", md: "1rem" },
                     }}
                   >
                     『ジャンルに縛られない、3人だけの自由なセッション』をコンセプトに活動中。
@@ -248,7 +238,11 @@ export default function HomePage() {
                   <Stack
                     direction="row"
                     spacing={1.2}
-                    sx={{ mt: 3, flexWrap: "wrap" }}
+                    sx={{
+                      mt: 3,
+                      flexWrap: "wrap",
+                      justifyContent: { xs: "center", md: "flex-start" },
+                    }}
                   >
                     <Chip
                       icon={<MusicNoteOutlined />}
@@ -291,7 +285,10 @@ export default function HomePage() {
                   <Stack
                     direction={{ xs: "column", sm: "row" }}
                     spacing={2}
-                    sx={{ mt: 4, alignItems: { xs: "stretch", sm: "center" } }}
+                    sx={{
+                      mt: 3.5,
+                      alignItems: { xs: "stretch", sm: "center" },
+                    }}
                   >
                     <Button
                       variant="contained"
@@ -334,12 +331,13 @@ export default function HomePage() {
                 </Grid>
 
                 {/* 右：グラスカード（リンク集） */}
-                <Grid size={{ xs: 12, md: 5 }}>
+                <Grid size={{ xs: 12, md: 5 } as any}>
                   <Box
                     sx={{
                       ml: { md: "auto" },
                       maxWidth: 360,
                       mt: { xs: 4, md: 0 },
+                      mx: { xs: "auto", md: 0 },
                     }}
                   >
                     <Box
@@ -470,11 +468,18 @@ export default function HomePage() {
             sx={{
               position: "relative",
               zIndex: 1,
-              py: { xs: 8, md: 10 },
+              py: { xs: 7, md: 10 },
             }}
           >
-            <Container maxWidth="lg">
-              <Stack spacing={1.5} sx={{ mb: 5 }}>
+            <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+              <Stack
+                spacing={1.5}
+                sx={{
+                  mb: 5,
+                  textAlign: { xs: "center", md: "left" },
+                  alignItems: { xs: "center", md: "flex-start" },
+                }}
+              >
                 <Stack direction="row" spacing={1} alignItems="center">
                   <GroupOutlined fontSize="small" />
                   <Typography
@@ -511,7 +516,7 @@ export default function HomePage() {
 
               <Grid container spacing={3}>
                 {/* スグリユリカ */}
-                <Grid size={{ xs: 12, md: 4 }}>
+                <Grid size={{ xs: 12, md: 4 } as any}>
                   <Card
                     elevation={0}
                     sx={{
@@ -521,7 +526,7 @@ export default function HomePage() {
                       bgcolor: "rgba(253,248,242,0.92)",
                     }}
                   >
-                    <CardContent sx={{ p: 3.5 }}>
+                    <CardContent sx={{ p: { xs: 2.8, md: 3.5 } }}>
                       <Typography
                         variant="overline"
                         sx={{
@@ -554,7 +559,7 @@ export default function HomePage() {
                 </Grid>
 
                 {/* ツマガリダイスケ */}
-                <Grid size={{ xs: 12, md: 4 }}>
+                <Grid size={{ xs: 12, md: 4 } as any}>
                   <Card
                     elevation={0}
                     sx={{
@@ -564,7 +569,7 @@ export default function HomePage() {
                       bgcolor: "rgba(253,248,242,0.92)",
                     }}
                   >
-                    <CardContent sx={{ p: 3.5 }}>
+                    <CardContent sx={{ p: { xs: 2.8, md: 3.5 } }}>
                       <Typography
                         variant="overline"
                         sx={{
@@ -597,7 +602,7 @@ export default function HomePage() {
                 </Grid>
 
                 {/* キムラコウキ */}
-                <Grid size={{ xs: 12, md: 4 }}>
+                <Grid size={{ xs: 12, md: 4 } as any}>
                   <Card
                     elevation={0}
                     sx={{
@@ -607,7 +612,7 @@ export default function HomePage() {
                       bgcolor: "rgba(253,248,242,0.92)",
                     }}
                   >
-                    <CardContent sx={{ p: 3.5 }}>
+                    <CardContent sx={{ p: { xs: 2.8, md: 3.5 } }}>
                       <Typography
                         variant="overline"
                         sx={{
@@ -647,13 +652,20 @@ export default function HomePage() {
         <Box
           id="live"
           sx={{
-            py: { xs: 8, md: 10 },
+            py: { xs: 7, md: 10 },
             bgcolor: "#f3e7da",
             borderTop: "1px solid rgba(62,47,30,0.06)",
           }}
         >
-          <Container maxWidth="lg">
-            <Stack spacing={1.5} sx={{ mb: 5 }}>
+          <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+            <Stack
+              spacing={1.5}
+              sx={{
+                mb: 5,
+                textAlign: { xs: "center", md: "left" },
+                alignItems: { xs: "center", md: "flex-start" },
+              }}
+            >
               <Stack direction="row" spacing={1} alignItems="center">
                 <EventAvailableOutlined fontSize="small" />
                 <Typography
@@ -678,7 +690,10 @@ export default function HomePage() {
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ maxWidth: 520, color: "rgba(62,47,30,0.8)" }}
+                sx={{
+                  maxWidth: 520,
+                  color: "rgba(62,47,30,0.8)",
+                }}
               >
                 実際の演奏の雰囲気を、そのまま感じていただけるライブ映像です。
                 会場の空気感ごと楽しんでいただければうれしいです。
@@ -686,7 +701,7 @@ export default function HomePage() {
             </Stack>
 
             <Grid container spacing={4}>
-              <Grid size={{ xs: 12, md: 8 }}>
+              <Grid size={{ xs: 12, md: 8 } as any}>
                 <Card
                   elevation={0}
                   sx={{
@@ -720,7 +735,7 @@ export default function HomePage() {
                 </Card>
               </Grid>
 
-              <Grid size={{ xs: 12, md: 4 }}>
+              <Grid size={{ xs: 12, md: 4 } as any}>
                 <Card
                   elevation={0}
                   sx={{
@@ -728,9 +743,10 @@ export default function HomePage() {
                     borderRadius: 3,
                     border: "1px solid rgba(62,47,30,0.08)",
                     bgcolor: "#fdf8f2",
+                    mt: { xs: 2, md: 0 },
                   }}
                 >
-                  <CardContent sx={{ p: 3.5 }}>
+                  <CardContent sx={{ p: { xs: 3, md: 3.5 } }}>
                     <Stack spacing={2}>
                       <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                         イベント出演について
@@ -739,8 +755,8 @@ export default function HomePage() {
                         variant="body2"
                         sx={{ color: "rgba(62,47,30,0.85)" }}
                       >
-                        KDハポン、コロンブスマーケット、COBO market、
-                        Japanese Craft Fair 2025、愛知ウェルネスマルシェ など、
+                        KDハポン、コロンブスマーケット、COBO market、Japanese
+                        Craft Fair 2025、愛知ウェルネスマルシェ など、
                         これまでさまざまなイベントに出演してきました。
                         会場の雰囲気に合わせた選曲と音量で演奏します。
                       </Typography>
@@ -766,25 +782,6 @@ export default function HomePage() {
                           startIcon={<InstagramIcon />}
                         >
                           Instagram から問い合わせ
-                        </Button>
-
-                        <Button
-                          variant="outlined"
-                          fullWidth
-                          sx={{
-                            borderRadius: 999,
-                            textTransform: "none",
-                            borderColor: "rgba(62,47,30,0.3)",
-                            "&:hover": {
-                              borderColor: "rgba(62,47,30,0.7)",
-                            },
-                          }}
-                          href="https://www.youtube.com/watch?v=rQOJfemmTUk"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          startIcon={<YouTubeIcon />}
-                        >
-                          YouTube で見る
                         </Button>
                       </Stack>
 
@@ -817,9 +814,9 @@ export default function HomePage() {
             py: 4,
           }}
         >
-          <Container maxWidth="lg">
+          <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
             <Grid container spacing={3} alignItems="center">
-              <Grid size={{ xs: 12, md: 6 }}>
+              <Grid size={{ xs: 12, md: 6 } as any}>
                 <Stack spacing={0.5}>
                   <Typography
                     variant="subtitle1"
@@ -841,8 +838,12 @@ export default function HomePage() {
               </Grid>
 
               <Grid
-                size={{ xs: 12, md: 6 }}
-                sx={{ display: "flex", justifyContent: { md: "flex-end" } }}
+                size={{ xs: 12, md: 6 } as any}
+                sx={{
+                  display: "flex",
+                  justifyContent: { xs: "flex-start", md: "flex-end" },
+                  mt: { xs: 1, md: 0 },
+                }}
               >
                 <Stack
                   direction="row"
@@ -885,6 +886,7 @@ export default function HomePage() {
                 display: "block",
                 mt: 2,
                 color: "rgba(62,47,30,0.7)",
+                textAlign: { xs: "left", md: "right" },
               }}
             >
               © {new Date().getFullYear()} kimaguri jam. All rights reserved.
