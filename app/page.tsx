@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   AppBar,
   Box,
@@ -31,6 +32,27 @@ import {
 import theme from "./theme";
 
 export default function HomePage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    // 初回のスクロール位置を設定
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -128,10 +150,12 @@ export default function HomePage() {
             color: "#fefaf5",
             overflow: "hidden",
             backgroundImage: "url('kimaguri-artist-photo.webp')", // public に配置
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundSize: "auto 100vh", // 画面幅100%を表示
+            backgroundPosition: `center ${scrollY * 0.5}px`,
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed", 
+            willChange: "background-position", // iOSでのパフォーマンス向上
+            minHeight: "100vh", // 背景が十分な高さを確保
+            // iOS対応: background-attachment: fixed は使わず、JavaScriptで動的に位置を変更
           }}
         >
           {/* グラデーションオーバーレイ */}
